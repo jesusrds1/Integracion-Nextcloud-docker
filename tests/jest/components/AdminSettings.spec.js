@@ -2,9 +2,9 @@
 
 import axios from '@nextcloud/axios'
 import { createLocalVue, shallowMount, mount } from '@vue/test-utils'
-import AdminSettings from '../../../src/components/AdminSettings'
+import AdminSettings from '../../../src/components/AdminSettings.vue'
 import * as initialState from '@nextcloud/initial-state'
-import { F_MODES } from '../../../src/utils'
+import { F_MODES } from '../../../src/utils.js'
 import * as dialogs from '@nextcloud/dialogs'
 
 jest.mock('@nextcloud/axios')
@@ -67,7 +67,7 @@ const completeIntegrationState = {
 	},
 }
 
-// eslint-disable-next-line no-import-assign
+// eslint-disable-next-line no-import-assign,import/namespace
 initialState.loadState = jest.fn(() => {
 	return {
 		oauth_instance_url: null,
