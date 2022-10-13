@@ -1,12 +1,12 @@
 <template>
-	<Button v-if="!!isAdminConfigOk"
+	<NcButton v-if="!!isAdminConfigOk"
 		class="oauth-connect--button"
 		@click="onOAuthClick">
 		<template #icon>
 			<OpenInNewIcon :size="20" />
 		</template>
 		{{ t('integration_openproject', 'Connect to OpenProject') }}
-	</Button>
+	</NcButton>
 	<div v-else class="oauth-connect--message">
 		{{ adminConfigNotOkMessage }}
 	</div>
@@ -17,13 +17,13 @@ import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
 import { generateUrl } from '@nextcloud/router'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import Button from '@nextcloud/vue/dist/Components/Button'
+import NcButton from '@nextcloud/vue/dist/Components/Button.js'
 
 export default {
 	name: 'OAuthConnectButton',
 
 	components: {
-		Button,
+		NcButton,
 		OpenInNewIcon,
 	},
 

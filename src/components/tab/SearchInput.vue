@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import debounce from 'lodash/debounce'
+import debounce from 'lodash/debounce.js'
 import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
-import Multiselect from '@nextcloud/vue/dist/Components/Multiselect'
-import WorkPackage from './WorkPackage'
+import Multiselect from '@nextcloud/vue/dist/Components/Multiselect.js'
+import WorkPackage from './WorkPackage.vue'
 import { showError, showSuccess } from '@nextcloud/dialogs'
-import { workpackageHelper } from '../../utils/workpackageHelper'
-import { STATE } from '../../utils'
+import { workpackageHelper } from '../../utils/workpackageHelper.js'
+import { STATE } from '../../utils.js'
 
 const SEARCH_CHAR_LIMIT = 1
 const DEBOUNCE_THRESHOLD = 500
