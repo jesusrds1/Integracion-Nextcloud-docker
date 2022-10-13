@@ -4,20 +4,18 @@
 		:show-more-text="title"
 		:loading="isLoading">
 		<template #empty-content>
-			<EmptyContent v-if="emptyContentMessage">
+			<NcEmptyContent v-if="emptyContentMessage"
+				:description="!!isAdminConfigOk ? emptyContentMessage : undefined">
 				<template #icon>
 					<CheckBoldIcon v-if="isStateOk" :size="70" />
 					<LinkOffIcon v-else :size="70" />
 				</template>
-				<template #desc>
-					<div v-if="!!isAdminConfigOk">
-						{{ emptyContentMessage }}
-					</div>
+				<template #action>
 					<div v-if="showOauthConnect" class="connect-button">
 						<OAuthConnectButton :is-admin-config-ok="isAdminConfigOk" />
 					</div>
 				</template>
-			</EmptyContent>
+			</NcEmptyContent>
 		</template>
 	</DashboardWidget>
 </template>
@@ -30,7 +28,7 @@ import { generateUrl } from '@nextcloud/router'
 import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
-import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent.js'
+import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import { loadState } from '@nextcloud/initial-state'
 import OAuthConnectButton from '../components/OAuthConnectButton.vue'
 import { checkOauthConnectionResult, STATE } from '../utils.js'
@@ -40,7 +38,7 @@ export default {
 	name: 'Dashboard',
 
 	components: {
-		DashboardWidget, EmptyContent, OAuthConnectButton, CheckBoldIcon, LinkOffIcon,
+		DashboardWidget, NcEmptyContent, OAuthConnectButton, CheckBoldIcon, LinkOffIcon,
 	},
 
 	props: {
