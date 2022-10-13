@@ -12,3 +12,15 @@ body.theme--dark .icon-openproject {
 .option-open-project > .icon-openproject, .action-open-project > .icon-openproject {
 	height: 100%;
 }
+
+.panel > .panel--header .icon-openproject::before {
+	content: '';
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	right: 20px;
+	z-index: 999;
+	background-image: url('../img/bell-ring.png');
+	background-size: 24px;
+	filter: invert(100%);
+}
